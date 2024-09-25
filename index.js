@@ -7,7 +7,7 @@ const Greenlock = require('greenlock-express');
 class Roster {
     constructor(options = {}) {
         this.maintainerEmail = options.maintainerEmail || 'admin@example.com';
-        this.wwwPath = options.wwwPath || path.join(__dirname, '..', 'www');
+        this.wwwPath = options.wwwPath || path.join(__dirname, '..', '..', '..', 'www');
         this.greenlockConfigDir = options.greenlockConfigDir || path.join(__dirname, 'greenlock.d');
         this.staging = options.staging || false; // Set to true for testing
         this.domains = [];
