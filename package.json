@@ -1,6 +1,6 @@
 {
     "name": "roster-express",
-    "version": "1.0.6",
+    "version": "1.0.8",
     "description": "👾 RosterExpress - A domain host router for Express.js to host multiple HTTPS.",
     "main": "index.js",
     "scripts": {
