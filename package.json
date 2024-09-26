@@ -1,6 +1,6 @@
 {
     "name": "roster-express",
-    "version": "1.1.4",
+    "version": "1.1.6",
     "description": "👾 RosterExpress - A domain host router for Express.js to host multiple HTTPS.",
     "main": "index.js",
     "scripts": {
@@ -11,14 +11,18 @@
         "url": "git+https://github.com/clasen/RosterExpress.git"
     },
     "keywords": [
+        "clasen",
         "express",
         "greenlock",
         "https",
         "vhost",
+        "domain",
         "multi-domain",
         "letsencrypt",
         "hosting",
-        "ssl"
+        "ssl",
+        "host",
+        "greenlock-express"
     ],
     "author": "Martin Clasen",
     "license": "MIT",
