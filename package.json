@@ -11,7 +11,6 @@
         "url": "git+https://github.com/clasen/RosterExpress.git"
     },
     "keywords": [
-        "clasen",
         "express",
         "greenlock",
         "https",
@@ -22,7 +21,8 @@
         "hosting",
         "ssl",
         "host",
-        "greenlock-express"
+        "greenlock-express",
+        "clasen"
     ],
     "author": "Martin Clasen",
     "license": "MIT",
