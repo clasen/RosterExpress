@@ -22,12 +22,22 @@ class Roster {
             .forEach((dirent) => {
                 const domain = dirent.name;
                 const domainPath = path.join(this.wwwPath, domain);
-                const indexPath = path.join(domainPath, 'index.js');
+                
+                // Check for different module file extensions
+                const possibleIndexFiles = ['index.js', 'index.mjs', 'index.cjs'];
+                let siteApp;
+                let loadedFile;
 
-                if (fs.existsSync(indexPath)) {
-                    // Require the index.js file of each domain (the Express app for the domain)
-                    const siteApp = require(indexPath);
+                for (const indexFile of possibleIndexFiles) {
+                    const indexPath = path.join(domainPath, indexFile);
+                    if (fs.existsSync(indexPath)) {
+                        siteApp = require(indexPath);
+                        loadedFile = indexFile;
+                        break;
+                    }
+                }
 
+                if (siteApp) {
                     // Add the main domain and 'www' subdomain by default
                     const domainEntries = [domain, `www.${domain}`];
                     this.domains.push(...domainEntries);
@@ -35,9 +45,9 @@ class Roster {
                         this.sites[d] = siteApp;
                     });
 
-                    console.log(`✅ Loaded site: ${domain}`);
+                    console.log(`✅ Loaded site: ${domain} (using ${loadedFile})`);
                 } else {
-                    console.warn(`⚠️ index.js not found in ${domainPath}`);
+                    console.warn(`⚠️ No index file (js/mjs/cjs) found in ${domainPath}`);
                 }
             });
     }
